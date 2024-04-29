@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 64px;
+    font-weight: bold;
+    padding: 16px;
+}
+
+.description {
+    font-size: 18px;
+    padding:16px;
+}
+
+.flex-grid {
+    display: flex;
+    flex-wrap: wrap;
+    height: 960px;
+    width: 960px;
+    padding: 16px;
+}
