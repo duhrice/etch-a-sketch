@@ -15,7 +15,12 @@ function createGrid(boxPerLine, boxSize) {
             box-sizing: border-box;\
             border: 1px solid black;`);
         box.onmouseover = function () {
-            box.style.backgroundColor = "black";
+            if (box.style.backgroundColor == "white") {
+                box.style.backgroundColor = random_rgb();
+                box.style.opacity = 0.1;
+            } else {
+                box.style.opacity = parseFloat(box.style.opacity) + 0.1;
+            }
         };
     
         flexGrid.appendChild(box);
@@ -37,8 +42,13 @@ resetButton.addEventListener("click", () => {
         console.log("User did not submit a number. Default to 16 boxes per line.");
         createGrid(16, 60);
     } else {
-        numBoxes = parseInt(newGridSize);
-        boxSize = 960 / parseInt(newGridSize);
+        if (parseInt(newGridSize) > 100) {
+            numBoxes = 100;
+            boxSize = 960 / 100;
+        } else {
+            numBoxes = parseInt(newGridSize);
+            boxSize = 960 / parseInt(newGridSize);
+        }
         createGrid(numBoxes, boxSize);
     }
 });
